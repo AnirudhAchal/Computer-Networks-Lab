@@ -1,5 +1,4 @@
 import socket
-import threading
 
 # Constants
 HEADER = 64
