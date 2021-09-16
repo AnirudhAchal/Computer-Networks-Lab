@@ -43,7 +43,7 @@ class Server:
             self.send_message(connection, current_date)
 
     def receive_message(self, connection, address):
-        while connection:
+        while True:
             try:
                 header = connection.recv(HEADER).decode(FORMAT)
                 if header:
@@ -56,7 +56,7 @@ class Server:
                 return
 
     def handle_send_message(self, connection, address):
-        while connection:
+        while True:
             try:
                 self.send_message(connection, input())
                 print(f'[MESSAGE SENT] {address}')
