@@ -5,32 +5,34 @@ import threading
 HEADER = 64
 PORT = 5050
 SERVER = '192.168.1.225'
-ADDRESS = (SERVER, PORT)
+SERVER_ADDRESS = (SERVER, PORT)
 FORMAT = 'utf-8'
 SOCKET_FAMILY = socket.AF_INET
 SOCKET_PROTOCOL = socket.SOCK_STREAM
 
-# Server Socket
-client = socket.socket(SOCKET_FAMILY, SOCKET_PROTOCOL)
-client.connect(ADDRESS)
 
+class Client:
+    def __init__(self, socket_family, socket_protocol, server_address):
+        # Client Socket
+        self.client = socket.socket(socket_family, socket_protocol)
+        self.client.connect(server_address)
 
-def receive_message():
-    header = client.recv(HEADER).decode(FORMAT)
-    if header:
-        server_message_length = int(header)
-        if server_message_length > 0:
-            server_message = client.recv(server_message_length).decode(FORMAT)
-            print(f'[SERVER MESSAGE] {server_message}')
+    def receive_message(self):
+        header = self.client.recv(HEADER).decode(FORMAT)
+        if header:
+            server_message_length = int(header)
+            if server_message_length > 0:
+                server_message = self.client.recv(server_message_length).decode(FORMAT)
+                print(f'[SERVER MESSAGE] {server_message}')
 
-
-def start_client():
-    while True:
-        receive_message()
+    def start(self):
+        while True:
+            self.receive_message()
 
 
 def main():
-    start_client()
+    client = Client(SOCKET_FAMILY, SOCKET_PROTOCOL, SERVER_ADDRESS)
+    client.start()
 
 
 main()
