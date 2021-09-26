@@ -1,6 +1,5 @@
 import socket
 import threading
-import datetime
 
 # Constants
 HEADER = 64
