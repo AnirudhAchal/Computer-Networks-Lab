@@ -3,7 +3,7 @@ import socket
 # Constants
 HEADER = 64
 PORT = 5050
-SERVER = '192.168.1.225'
+SERVER = input('Server IP Address: ')
 SERVER_ADDRESS = (SERVER, PORT)
 FORMAT = 'utf-8'
 SOCKET_FAMILY = socket.AF_INET

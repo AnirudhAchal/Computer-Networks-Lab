@@ -4,8 +4,8 @@ import json
 # Constants
 HEADER = 64
 PORT = 8080
-SERVER = '192.168.1.225'
-BASE_URL = 'http://192.168.1.225'
+SERVER = input('Server IP Address: ')
+BASE_URL = f'http://{SERVER}'
 SERVER_ADDRESS = (SERVER, PORT)
 FORMAT = 'utf-8'
 SOCKET_FAMILY = socket.AF_INET
