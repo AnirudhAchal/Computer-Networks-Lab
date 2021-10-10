@@ -34,7 +34,7 @@ class PortScanner:
 def main():
     server = input('Server: ')
     port_scanner = PortScanner()
-    port_scanner.scan(server, 49660, 49680)
+    port_scanner.scan(server, 120, 140)
 
 
 main()
