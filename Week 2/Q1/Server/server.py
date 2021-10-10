@@ -93,7 +93,6 @@ class Server:
         while True:
             connection, address = self.server.accept()
             self.handle_client(connection, address)
-            print('here')
 
 
 def main():

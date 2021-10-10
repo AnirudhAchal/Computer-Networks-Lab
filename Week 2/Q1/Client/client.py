@@ -2,7 +2,6 @@ import socket
 import json
 
 # Constants
-HEADER = 64
 PORT = 8080
 SERVER = input('Server IP Address: ')
 BASE_URL = f'http://{SERVER}'
