@@ -28,7 +28,6 @@ class Client:
             print(e, 'Server not available')
             return
 
-        print('here')
         page = url[len(BASE_URL):]
         request = {
             'header': {
