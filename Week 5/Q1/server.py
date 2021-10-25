@@ -42,9 +42,9 @@ while(True):
         raise Exception("Incorrect common name in client certificate")
 
     # Check time validity of the client certificate
-    t1  = ssl.cert_time_to_seconds(client_cert['notBefore'])
-    t2  = ssl.cert_time_to_seconds(client_cert['notAfter'])
-    ts  = time.time()
+    t1 = ssl.cert_time_to_seconds(client_cert['notBefore'])
+    t2 = ssl.cert_time_to_seconds(client_cert['notAfter'])
+    ts = time.time()
 
     if ts < t1:
         raise Exception("Client certificate not yet active")
